@@ -1,0 +1,55 @@
+# Project: NickProject
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o Password/password.o Hash/MD5.o Library/Library.o FileIO/FileIo.o UserInterface/Ui.o UserInterface/Logo.o Memory/Memory.o Pci/PciLib.o Pci/PciMain.o
+LINKOBJ  = main.o Password/password.o Hash/MD5.o Library/Library.o FileIO/FileIo.o UserInterface/Ui.o UserInterface/Logo.o Memory/Memory.o Pci/PciLib.o Pci/PciMain.o
+LIBS     = -L"D:/Dev-Cpp/MinGW64/lib" -L"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -L"C:/Users/Nick/Desktop/NickProject" -L"C:/Users/Nick/Desktop/NickProject/Password" -L"C:/Users/Nick/Desktop/NickProject/Hash" -L"C:/Users/Nick/Desktop/NickProject/Library"
+INCS     = -I"D:/Dev-Cpp/MinGW64/include" -I"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/Dev-Cpp/MinGW64/include" -I"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = NickProject.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+Password/password.o: Password/password.c
+	$(CC) -c Password/password.c -o Password/password.o $(CFLAGS)
+
+Hash/MD5.o: Hash/MD5.c
+	$(CC) -c Hash/MD5.c -o Hash/MD5.o $(CFLAGS)
+
+Library/Library.o: Library/Library.c
+	$(CC) -c Library/Library.c -o Library/Library.o $(CFLAGS)
+
+FileIO/FileIo.o: FileIO/FileIo.c
+	$(CC) -c FileIO/FileIo.c -o FileIO/FileIo.o $(CFLAGS)
+
+UserInterface/Ui.o: UserInterface/Ui.c
+	$(CC) -c UserInterface/Ui.c -o UserInterface/Ui.o $(CFLAGS)
+
+UserInterface/Logo.o: UserInterface/Logo.c
+	$(CC) -c UserInterface/Logo.c -o UserInterface/Logo.o $(CFLAGS)
+
+Memory/Memory.o: Memory/Memory.c
+	$(CC) -c Memory/Memory.c -o Memory/Memory.o $(CFLAGS)
+
+Pci/PciLib.o: Pci/PciLib.c
+	$(CC) -c Pci/PciLib.c -o Pci/PciLib.o $(CFLAGS)
+
+Pci/PciMain.o: Pci/PciMain.c
+	$(CC) -c Pci/PciMain.c -o Pci/PciMain.o $(CFLAGS)
